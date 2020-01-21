@@ -58,15 +58,15 @@ if (!window.bruin) var bruin = {
             let divSong = document.createElement('div');
             divSong.classList.add('divSong');
 
-            let pArtist = document.createElement('p');
-            pArtist.innerHTML = song.artist;
-            pArtist.classList.add('pArtist');
-            divSong.appendChild(pArtist);
-
             let pTrack = document.createElement('p');
             pTrack.innerHTML = song.track;
             pTrack.classList.add('pTrack');
             divSong.appendChild(pTrack);
+
+            let pArtist = document.createElement('p');
+            pArtist.innerHTML = song.artist;
+            pArtist.classList.add('pArtist');
+            divSong.appendChild(pArtist);
 
             Id('divSongs').appendChild(divSong);
         })
