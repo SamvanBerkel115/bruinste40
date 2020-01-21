@@ -68,6 +68,12 @@ if (!window.bruin) var bruin = {
             pArtist.classList.add('pArtist');
             divSong.appendChild(pArtist);
 
+            divSong.onclick = function(evt) {
+                let songDiv = this.cloneNode(true);
+
+                Id('divSelection').appendChild(songDiv);
+            }
+
             Id('divSongs').appendChild(divSong);
         })
     }
