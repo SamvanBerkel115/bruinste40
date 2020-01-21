@@ -13,6 +13,13 @@ label, span, a, p, button, h3 {
 }
 
 /* Song list */
+#tbSearchBar {
+    width: 100%;
+    margin-bottom: 10px;
+    width: calc(100% - 8px);
+    padding: 8px;
+}
+
 #divSongs {
     width: 700px;
     padding: 30px;
@@ -24,10 +31,11 @@ label, span, a, p, button, h3 {
 }
 
 .divSong {
-    width: calc(100% - 60px);
+    width: calc(100% - 30px);
     height: 40px;
     padding: 20px;
     margin-bottom: 10px;
+    margin-right: 0;
     background-color: #e8e8e8;
 }
 

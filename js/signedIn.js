@@ -50,6 +50,11 @@ if (!window.bruin) var bruin = {
         users: [],
         chosen: []
     },
+    set: {
+        songs: function() {
+            
+        }
+    },
     clear: function() {
     },
     init: async function() {
