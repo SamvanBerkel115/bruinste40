@@ -47,7 +47,8 @@ if (!window.bruin) var bruin = {
     },
     data: {
         songs: [],
-        users: []
+        users: [],
+        chosen: []
     },
     clear: function() {
     },

@@ -38,10 +38,12 @@ label, span, a, p, button, h3 {
 .pTrack {
     font-weight: bold;
     margin-bottom: 10px;
+    color: #404040;
 }
 
 .pArtist {
-
+    color: #717171;
+    font-size: 0.9em;
 }
 
 /* Chosen songs */
