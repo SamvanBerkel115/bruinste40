@@ -1,7 +1,30 @@
-body {
+header {
     background-color: #654321;
+    height: 100px;
 }
 
 label, span, a, button {
     font-family: Verdana;
+}
+
+#divSongs {
+    width: 700px;
+    padding: 30px;
+    margin: auto;
+    height: 600px;
+    overflow-y: scroll;
+}
+
+.divSong {
+    width: 100%;
+    height: 50px;
+    margin-bottom: 10px;
+}
+
+.pArtist {
+
+}
+
+.pTrack {
+
 }
