@@ -32,13 +32,27 @@
             </div>
             <div>
                 <label class="inputTitle">Wachtwoord</label>
-                <input type="text" id="tbPassword">
+                <input type="password" id="tbPassword">
             </div>
             <button id="btnJoin">Aanmelden</button>
             <hr>
-            <span>Ben je al bruin?</span>
-            <a id="btnSignIn" href="">Log in</a>
+            <span >Ben je al bruin?</span>
+            <a id="btnAlreadyAccount">Log in</a>
         </div>
+        <div id="divSignIn" style="display:none;">
+                <div>
+                    <label class="inputTitle">Gebruikersnaam</label>
+                    <input type="text" id="tbSignInUserName">
+                </div>
+                <div>
+                    <label class="inputTitle">Wachtwoord</label>
+                    <input type="password" id="tbSignInPassword">
+                </div>
+                <button id="btnSignIn">Inloggen</button>
+                <hr>
+                <span >Nog niet bruin?</span>
+                <a id="btnNoAccountYet">Maak een account aan</a>
+            </div>
     </div>
     <footer>
         <h2 id="faceDown" class="subtitle">Face down</h2>

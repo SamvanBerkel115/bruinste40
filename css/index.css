@@ -12,6 +12,54 @@ label, span, a, button, h2 {
     margin: 40px auto 40px auto;
 }
 
+#divContent {
+    width: 500px;
+    height: fit-content;
+    margin: 0 auto 0 auto;
+    padding: 30px;
+    background-color: #EAEAEA;
+}
+
+.inputTitle {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input {
+    width: calc(100% - 16px);
+    padding: 8px;
+    margin-bottom: 25px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    font-size: 1.2em;
+    background-color: #23a223;
+    border: none;
+    color: white;
+}
+
+button:hover {
+    background-color: #229622;
+    transition: all 0.5s;
+}
+
+hr {
+    margin-top: 25px;
+    margin-bottom: 25px
+}
+
+#btnSignIn {
+    display: inline-block;
+}
+
+a {
+    cursor: pointer;
+    text-decoration: underline;
+    color: #21708a;
+}
+
 .subtitle {
     text-align: center;
     color: white;
@@ -26,48 +74,6 @@ label, span, a, button, h2 {
 #timber {
     margin-top: 30px;
     font-weight: bold;
-}
-
-#divContent {
-    width: 500px;
-    height: fit-content;
-    margin: 0 auto 0 auto;
-    padding: 30px;
-    background-color: #EAEAEA;
-}
-
-.inputTitle {
-    display: block;
-    margin-bottom: 5px;
-}
-
-input[type=text] {
-    width: calc(100% - 16px);
-    padding: 8px;
-    margin-bottom: 25px;
-}
-
-#btnJoin {
-    width: 100%;
-    padding: 10px;
-    font-size: 1.2em;
-    background-color: #23a223;
-    border: none;
-    color: white;
-}
-
-#btnJoin:hover {
-    background-color: #229622;
-    transition: all 0.5s;
-}
-
-hr {
-    margin-top: 25px;
-    margin-bottom: 25px
-}
-
-#btnSignIn {
-    display: inline-block;
 }
 
 @media only screen and (max-width: 750px) {

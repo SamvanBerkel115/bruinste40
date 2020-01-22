@@ -92,7 +92,37 @@ if (!window.bruin) var bruin = {
         }
 
         Id('btnSignIn').onclick = async function() {
+            let userName = Id('tbSignInUserName').value;
+            let password = Id('tbSignInPassword').value;
+            const users = await bruin.rest.get.users();
 
+            let correctPaswrd = false;
+
+            for (let i = 0; i < users.length; i++) {
+                if (users[i].userName == userName) {
+                    if (users[i].password == password) {
+                        correctPaswrd = true;
+                        break;
+                    }
+                }
+            }
+
+            if (correctPaswrd) {
+                bruin.clear();
+
+                localStorage.setItem('userName', userName);
+                window.location.href = "signedIn.html";
+            }
+        }
+
+        Id('btnAlreadyAccount').onclick = async function() {
+            Id('divSignIn').style.display = "block";
+            Id('divRegister').style.display = "none";
+        }
+
+        Id('btnNoAccountYet').onclick = async function() {
+            Id('divSignIn').style.display = "none";
+            Id('divRegister').style.display = "block";
         }
 
         bruin.data.songs = await bruin.rest.get.songs();
