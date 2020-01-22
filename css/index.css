@@ -2,7 +2,7 @@ body {
     background-color: #654321;
 }
 
-label, span, a, button {
+label, span, a, button, h2 {
     font-family: Verdana;
 }
 
@@ -10,6 +10,22 @@ label, span, a, button {
     width: 600px;
     display: block;
     margin: 40px auto 40px auto;
+}
+
+.subtitle {
+    text-align: center;
+    color: white;
+    font-size: 1.3em;
+    margin-top: 10px;
+}
+
+#faceDown {
+    margin-top: 40px;
+}
+
+#timber {
+    margin-top: 30px;
+    font-weight: bold;
 }
 
 #divContent {
