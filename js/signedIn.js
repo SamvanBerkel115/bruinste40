@@ -122,7 +122,8 @@ if (!window.bruin) var bruin = {
                     iconDelete.onclick = function(evt) {
                         let btn = this;
 
-                        bruin.data.selectedSongs.filter(function(song) {
+                        // Remove the song from the selected songs data.
+                        bruin.data.selectedSongs = bruin.data.selectedSongs.filter(function(song) {
                             if (song.track == btn.params.track) {
                                 return false;
                             } else {
@@ -130,9 +131,20 @@ if (!window.bruin) var bruin = {
                             }
                         })
 
+                        // Remove the div from the selected list.
                         let songDiv = btn.parentElement;
-
                         songDiv.parentElement.removeChild(songDiv);
+
+                        // Set the opacity back in the songs list.
+                        let childNodes = Id('divSongs').childNodes;
+
+                        for (let i = 0; i < childNodes.length; i++) {
+                            if (childNodes[i].classList.contains("divSong")) {
+                                if (childNodes[i].params.track == btn.params.track) {
+                                    childNodes[i].style.opacity = "1";
+                                }
+                            }
+                        }
                     }
     
                     Id('divSelectedSongs').appendChild(divSelectedSong);
