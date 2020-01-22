@@ -20,18 +20,23 @@ label, span, a, p, button, h3 {
     padding: 8px;
 }
 
-#divSongs {
+#divSongSelection {
     width: 700px;
     padding: 30px;
     margin: auto;
-    height: 600px;
-    overflow-y: scroll;
+    height: fit-content;
     background-color: #f5f5f5;
     grid-column: 4;
 }
 
+#divSongs {
+    height: 600px;
+    width: 100%;
+    overflow-y: scroll;
+}
+
 .divSong {
-    width: calc(100% - 30px);
+    width: calc(100% - 40px);
     height: 40px;
     padding: 20px;
     margin-bottom: 10px;
@@ -56,14 +61,58 @@ label, span, a, p, button, h3 {
 
 /* Chosen songs */
 #divSelection {
+    display: grid;
+    grid-template-columns: 30px 10px auto;
+    grid-template-rows: 30px auto;
     background-color: #f5f5f5;
     width: calc(100% - 60px);
+    height: calc(100% - 60px);
     grid-column: 2;
     grid-row: 1;
     padding: 30px
 }
 
 h3 {
+    grid-row: 1;
+    grid-column: 1/4;
     text-align: center;
     font-weight: bold;
+    margin-bottom: 20px;
+}
+
+#numberList {
+    grid-row: 2;
+    grid-column: 1;
+}
+
+#numberList p {
+    margin-top: 20px;
+    margin-bottom: 50px;
+    font-weight: bold;;
+}
+
+#divSelectedSongs {
+    grid-row: 2;
+    grid-column: 3;
+
+}
+
+.divSelectedSong {
+    box-sizing: border-box;
+    padding: 20px;
+    background-color: #e8e8e8;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.divSelectedSong:hover {
+    box-shadow: 1px 1px 10px 1px #c3c3c3;
+}
+
+.divSelectedSong span {
+    font-size: 0.9em;
+}
+
+@media only screen and (max-width: 600px) {
+
 }

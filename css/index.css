@@ -7,15 +7,15 @@ label, span, a, button {
 }
 
 #imgLogo {
-    width: 30%;
+    width: 600px;
     display: block;
-    margin: 40px auto 0 auto;
+    margin: 40px auto 40px auto;
 }
 
 #divContent {
     width: 500px;
     height: fit-content;
-    margin: 100px auto 0 auto;
+    margin: 0 auto 0 auto;
     padding: 30px;
     background-color: #EAEAEA;
 }
@@ -37,6 +37,7 @@ input[type=text] {
     font-size: 1.2em;
     background-color: #23a223;
     border: none;
+    color: white;
 }
 
 #btnJoin:hover {
@@ -51,4 +52,14 @@ hr {
 
 #btnSignIn {
     display: inline-block;
+}
+
+@media only screen and (max-width: 750px) {
+    #divContent {
+        width: calc(100% - 120px);
+    }
+
+    #imgLogo {
+        width: calc(100% - 120px);
+    }
 }
