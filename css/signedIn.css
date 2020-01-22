@@ -113,6 +113,16 @@ h3 {
     font-size: 0.9em;
 }
 
+.btnDeleteSong {
+    float: right;
+    color: #404040; 
+}
+
+.btnDeleteSong:hover {
+    color: black;
+    animation: all 0.5s; 
+}
+
 @media only screen and (max-width: 600px) {
 
 }

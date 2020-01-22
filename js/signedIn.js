@@ -111,6 +111,29 @@ if (!window.bruin) var bruin = {
                     pTrack.innerHTML = divSong.params.track;
                     pTrack.classList.add('pTrack');
                     divSelectedSong.appendChild(pTrack);
+
+                    let iconDelete = document.createElement('i');
+                    iconDelete.classList.add("fas");
+                    iconDelete.classList.add("fa-trash-alt");
+                    iconDelete.classList.add("btnDeleteSong");
+                    iconDelete.params = divSong.params;
+                    divSelectedSong.appendChild(iconDelete);
+
+                    iconDelete.onclick = function(evt) {
+                        let btn = this;
+
+                        bruin.data.selectedSongs.filter(function(song) {
+                            if (song.track == btn.params.track) {
+                                return false;
+                            } else {
+                                return true;
+                            }
+                        })
+
+                        let songDiv = btn.parentElement;
+
+                        songDiv.parentElement.removeChild(songDiv);
+                    }
     
                     Id('divSelectedSongs').appendChild(divSelectedSong);
                 }
