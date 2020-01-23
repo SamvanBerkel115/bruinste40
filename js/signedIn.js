@@ -174,7 +174,7 @@ if (!window.bruin) var bruin = {
             iconDelete.params = songObj;
             divSong.appendChild(iconDelete);
 
-            $(iconDelete).on('click touchend', async function(evt) {
+            $(iconDelete).on('touchend click', async function(evt) {
                 stopPropagation();
                 let btn = this;
 
