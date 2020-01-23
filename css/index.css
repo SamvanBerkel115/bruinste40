@@ -11,7 +11,7 @@ label, span, a, button {
 #imgLogo {
     width: 600px;
     display: block;
-    margin: 40px auto 40px auto;
+    margin: 30px auto 10px auto;
 }
 
 #divContent {
@@ -65,7 +65,7 @@ h2 {
 }
 
 #faceDown {
-    margin-top: 40px;
+    margin-top: 20px;
 }
 
 #timber {
@@ -171,7 +171,7 @@ input:focus ~ label, input:valid ~ label {
 
 @media only screen and (max-width: 750px) {
     #divContent {
-        width: calc(100% - 80px);
+        width: calc(100% - 40px);
         padding: 30px 20px 30px 20px
     }
 
@@ -179,7 +179,7 @@ input:focus ~ label, input:valid ~ label {
         width: calc(100% - 120px);
     }
 
-    input {
-        margin-bottom: 15px;
+    #groupPassword {
+        margin-bottom: 20px;;
     }
 }
