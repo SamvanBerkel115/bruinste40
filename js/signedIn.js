@@ -84,7 +84,7 @@ if (!window.bruin) var bruin = {
                 pArtist.classList.add('pArtist');
                 divSong.appendChild(pArtist);
     
-                $(divSong).on('click touchstart', async function(evt) {
+                $(divSong).on('click touch', async function(evt) {
                     let divSong = this;
 
                     if (bruin.data.selectedSongs.length >= 10) {
@@ -170,7 +170,7 @@ if (!window.bruin) var bruin = {
             iconDelete.params = songObj;
             divSong.appendChild(iconDelete);
 
-            $(iconDelete).on('click touchstart', function(evt) {
+            $(iconDelete).on('click touch', function(evt) {
                 let btn = this;
 
                 // Remove the song from the selected songs data.
