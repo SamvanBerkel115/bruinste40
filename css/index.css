@@ -20,7 +20,7 @@ label, span, a, button {
     margin-left: auto;
     margin-right: auto;
     display: block;
-    margin-bottom: 30px;
+    margin-bottom: 25px;
 }
 
 #divContent {
@@ -29,41 +29,11 @@ label, span, a, button {
     height: fit-content;
     margin: 20px auto 0 auto;
     border-radius: 20px;
-    padding: 30px;
+    padding: 25px 30px 10px 30px;
     background-color: #fbfbfb;
 }
 
-button {
-    width: 100%;
-    padding: 10px;
-    font-size: 1em;
-    background-color: var(--main-brown);
-    border: none;
-    border-radius: 10px;
-    line-height: 35px;
-    color: white;
-}
-
-button:hover {
-    background-color: #4c3218;
-    transition: all 0.5s;
-}
-
-hr {
-    margin-top: 25px;
-    margin-bottom: 25px
-}
-
-#btnSignIn {
-    display: inline-block;
-}
-
-a {
-    cursor: pointer;
-    text-decoration: underline;
-    color: #21708a;
-}
-
+/* Input fields */
 :focus {
     outline: none;
 }
@@ -142,6 +112,47 @@ input {
   transition: 0.4s;
 }
 
+
+button {
+    width: 100%;
+    padding: 10px;
+    font-size: 1em;
+    background-color: var(--main-brown);
+    border: none;
+    border-radius: 10px;
+    line-height: 35px;
+    color: white;
+}
+
+button:hover {
+    background-color: #4c3218;
+    transition: all 0.5s;
+}
+
+hr {
+    margin-top: 25px;
+    margin-bottom: 25px
+}
+
+#btnSignIn {
+    display: inline-block;
+}
+
+a {
+    cursor: pointer;
+    text-decoration: underline;
+    color: #21708a;
+}
+
+#conditions {
+    font-size: 0.7em;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 0;
+}
+
+
+
 /* Quote */
 .subtitle {
     text-align: center;
@@ -168,6 +179,7 @@ h2 {
 #mrWorldwide {
     font-style: normal;
     letter-spacing: 2px;
+    margin-bottom: 20px;
 }
 
 @media only screen and (min-width: 750px) {
