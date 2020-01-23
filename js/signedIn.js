@@ -170,7 +170,7 @@ if (!window.bruin) var bruin = {
             iconDelete.params = songObj;
             divSong.appendChild(iconDelete);
 
-            $(iconDelete).on('click', function(evt) {
+            $(iconDelete).on('click', async function(evt) {
                 let btn = this;
 
                 // Remove the song from the selected songs data.
@@ -194,6 +194,16 @@ if (!window.bruin) var bruin = {
                         if (childNodes[i].params.track == btn.params.track) {
                             childNodes[i].style.opacity = "1";
                         }
+                    }
+                }
+
+                // Send the data to the server.
+                let users = await bruin.rest.get.users();
+                for (let i = 0; i < users.length; i++) {
+                    if (localStorage.getItem('userName') == users[i].userName) {
+                        users[i].selectedSongs = bruin.data.selectedSongs;
+                    
+                        bruin.rest.put.users(users);
                     }
                 }
             });
