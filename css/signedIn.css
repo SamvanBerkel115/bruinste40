@@ -1,10 +1,19 @@
+:root {
+    --main-brown: #654321;
+    --light-brown: #d4cac1;
+    --title-black: #323232;
+    --off-white: #f2f2f2;
+}
+
+* { box-sizing:border-box; }
+
 html {
     height: 100%;
 }
 
 body {
     height: 100%;
-    background-color: #f5f5f5;
+    background-color: var(--light-brown);
 }
 
 label, span, a, p, button, h3 {
@@ -29,20 +38,86 @@ header i {
 }
 
 /* Song list */
-#tbSearchBar {
+/* Input fields */
+:focus {
+    outline: none;
+}
+
+.inputLabel {
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: var(--title-black);
+}
+
+/* necessary to give position: relative to parent. */
+input {
+    font: 15px/24px "Muli", sans-serif;
+    color: #444;
     width: 100%;
-    margin-bottom: 10px;
-    box-sizing: border-box;
-    width: calc(100% - 8px);
-    padding: 8px;
+    letter-spacing: 1px;
+}
+
+.inputContainer {
+    width: 100%;
+    margin: 5px 0 20px 0;
+    position: relative;
+}
+
+.inputField {
+  border: 1px solid #ccc;
+  padding: 7px 14px 9px;
+  transition: 0.4s;
+}
+
+.inputField ~ .focus-border:before,
+.inputField ~ .focus-border:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--main-brown);
+  transition: 0.3s;
+}
+.inputField ~ .focus-border:after {
+  top: auto;
+  bottom: 0;
+  left: auto;
+  right: 0;
+}
+.inputField ~ .focus-border i:before,
+.inputField ~ .focus-border i:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 2px;
+  height: 0;
+  background-color: var(--main-brown);
+  transition: 0.4s;
+}
+.inputField ~ .focus-border i:after {
+  left: auto;
+  right: 0;
+  top: auto;
+  bottom: 0;
+}
+.inputField:focus ~ .focus-border:before,
+.inputField:focus ~ .focus-border:after {
+  width: 100%;
+  transition: 0.3s;
+}
+.inputField:focus ~ .focus-border i:before,
+.inputField:focus ~ .focus-border i:after {
+  height: 100%;
+  transition: 0.4s;
 }
 
 #divSongSelection {
     width: 700px;
-    box-sizing: border-box;
     height: 100%;
     padding: 30px;
-    box-sizing: border-box;
     grid-column: 4;
 }
 
@@ -53,12 +128,12 @@ header i {
 }
 
 .divSong {
-    width: calc(100% - 40px);
-    height: 40px;
+    width: 100%;
+    height: 70px;
     padding: 20px;
     margin-bottom: 10px;
     margin-right: 0;
-    background-color: #ffffff;
+    background-color: var(--off-white);
     box-shadow: 1px 1px 10px 1px #e0e0e0;
 }
 
@@ -68,7 +143,7 @@ header i {
 
 .pTrack {
     font-weight: bold;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
     color: #404040;
 }
 
@@ -86,8 +161,7 @@ header i {
     grid-row: 1;
     grid-template-columns: 30px 10px auto;
     grid-template-rows: 30px auto;
-    background-color: #f5f5f5;
-    box-sizing: border-box;
+    background-color: var(--light-brown);
     width: 0;
     height: calc(100% - 70px);
     padding: 0;
@@ -121,7 +195,6 @@ h3 {
 }
 
 .divSelectedSong {
-    box-sizing: border-box;
     padding: 12px;
     background-color: white;
     margin-bottom: 10px;

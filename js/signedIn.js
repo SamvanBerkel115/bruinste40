@@ -75,8 +75,12 @@ if (!window.bruin) var bruin = {
                 divSong.classList.add('divSong');
                 divSong.params = song;
     
+                let trackText = song.track;
+                if (trackText.length > 35) {
+                    trackText = trackText.substring(0, 35) + "...";
+                }
                 let pTrack = document.createElement('p');
-                pTrack.innerHTML = song.track;
+                pTrack.innerHTML = trackText;
                 pTrack.classList.add('pTrack');
                 divSong.appendChild(pTrack);
     
