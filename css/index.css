@@ -19,7 +19,7 @@ label, span, a, button {
     height: fit-content;
     margin: 0 auto 0 auto;
     padding: 30px;
-    background-color: #EAEAEA;
+    background-color: #fbfbfb;
 }
 
 button {
@@ -86,7 +86,8 @@ input {
     display:block;
     width: 100%;
     border:none;
-    border-bottom:1px solid #757575;
+    border-bottom:2px solid #999;
+    background-color: #EAEAEA;
 }
   
 input:focus { outline:none; }
