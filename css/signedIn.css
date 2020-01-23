@@ -187,6 +187,7 @@ h3 {
     position: absolute;
     top: 64px;
     left: 40px;
+    z-index: 1001;
 }
 
 #numberList p {
