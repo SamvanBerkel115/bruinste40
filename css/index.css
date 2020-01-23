@@ -1,7 +1,14 @@
+:root {
+    --main-brown: #654321;
+    --light-brown: #d4cac1;
+    --title-black: #323232;
+    --off-white: #f2f2f2;
+}
+
 * { box-sizing:border-box; }
 
 body {
-    background-color: #654321;
+    background-color: var(--light-brown);
 }
 
 label, span, a, button {
@@ -9,15 +16,19 @@ label, span, a, button {
 }
 
 #imgLogo {
-    width: 600px;
+    width: 200px;
+    margin-left: auto;
+    margin-right: auto;
     display: block;
-    margin: 30px auto 10px auto;
+    margin-bottom: 30px;
 }
 
 #divContent {
-    width: 500px;
+    width: calc(100% - 40px);
+    max-width: 700px;
     height: fit-content;
-    margin: 0 auto 0 auto;
+    margin: 20px auto 0 auto;
+    border-radius: 20px;
     padding: 30px;
     background-color: #fbfbfb;
 }
@@ -25,14 +36,16 @@ label, span, a, button {
 button {
     width: 100%;
     padding: 10px;
-    font-size: 1.2em;
-    background-color: #23a223;
+    font-size: 1em;
+    background-color: var(--main-brown);
     border: none;
+    border-radius: 10px;
+    line-height: 35px;
     color: white;
 }
 
 button:hover {
-    background-color: #229622;
+    background-color: #4c3218;
     transition: all 0.5s;
 }
 
@@ -51,14 +64,91 @@ a {
     color: #21708a;
 }
 
-.subtitle {
-    text-align: center;
-    color: white;
-    font-size: 1.3em;
-    margin-top: 10px;
+:focus {
+    outline: none;
+}
+
+.inputLabel {
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: var(--title-black);
+}
+
+/* necessary to give position: relative to parent. */
+input {
+    font: 15px/24px "Muli", sans-serif;
+    color: #444;
+    width: 100%;
+    box-sizing: border-box;
+    letter-spacing: 1px;
+}
+
+.col-3 {
+    width: 100%;
+    margin: 5px 0 20px 0;
+    position: relative;
+}
+
+.effect-7,
+.effect-8,
+.effect-9 {
+  border: 1px solid #ccc;
+  padding: 7px 14px 9px;
+  transition: 0.4s;
+}
+
+.effect-8 ~ .focus-border:before,
+.effect-8 ~ .focus-border:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--main-brown);
+  transition: 0.3s;
+}
+.effect-8 ~ .focus-border:after {
+  top: auto;
+  bottom: 0;
+  left: auto;
+  right: 0;
+}
+.effect-8 ~ .focus-border i:before,
+.effect-8 ~ .focus-border i:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 2px;
+  height: 0;
+  background-color: var(--main-brown);
+  transition: 0.4s;
+}
+.effect-8 ~ .focus-border i:after {
+  left: auto;
+  right: 0;
+  top: auto;
+  bottom: 0;
+}
+.effect-8:focus ~ .focus-border:before,
+.effect-8:focus ~ .focus-border:after {
+  width: 100%;
+  transition: 0.3s;
+}
+.effect-8:focus ~ .focus-border i:before,
+.effect-8:focus ~ .focus-border i:after {
+  height: 100%;
+  transition: 0.4s;
 }
 
 /* Quote */
+.subtitle {
+    text-align: center;
+    font-size: 1.6em;
+    margin-top: 10px;
+}
+
 h2 {
     font-style: italic;
     font-family: monospace;
@@ -74,113 +164,8 @@ h2 {
     font-weight: bold;
 }
 
-/* form starting stylings ------------------------------- */
-.group 			  { 
-    position: relative; 
-    margin-bottom: 35px; 
-}
-
-input {
-    font-size:18px;
-    padding:10px 10px 10px 5px;
-    display:block;
-    width: 100%;
-    border:none;
-    border-bottom:2px solid #999;
-    background-color: #EAEAEA;
-}
-  
-input:focus { outline:none; }
-  
-  /* LABEL ======================================= */
-label {
-    color:#999; 
-    font-size:18px;
-    font-weight:normal;
-    position:absolute;
-    pointer-events:none;
-    left:5px;
-    top:10px;
-    transition:0.2s ease all; 
-    -moz-transition:0.2s ease all; 
-    -webkit-transition:0.2s ease all;
-}
-  
-/* active state */
-input:focus ~ label, input:valid ~ label {
-    top:-20px;
-    font-size:14px;
-    color:#654321;
-}
-  
-  /* BOTTOM BARS ================================= */
-  .bar 	{ position:relative; display:block; width:100%; }
-  .bar:before, .bar:after 	{
-    content:'';
-    height:2px; 
-    width:0;
-    bottom:1px; 
-    position:absolute;
-    background:#654321; 
-    transition:0.2s ease all; 
-    -moz-transition:0.2s ease all; 
-    -webkit-transition:0.2s ease all;
-  }
-  .bar:before {
-    left:50%;
-  }
-  .bar:after {
-    right:50%; 
-  }
-  
-  /* active state */
-  input:focus ~ .bar:before, input:focus ~ .bar:after {
-    width:50%;
-  }
-  
-  /* HIGHLIGHTER ================================== */
-  .highlight {
-    position:absolute;
-    height:60%; 
-    width:100px; 
-    top:25%; 
-    left:0;
-    pointer-events:none;
-    opacity:0.5;
-  }
-  
-  /* active state */
-  input:focus ~ .highlight {
-    -webkit-animation:inputHighlighter 0.3s ease;
-    -moz-animation:inputHighlighter 0.3s ease;
-    animation:inputHighlighter 0.3s ease;
-  }
-  
-  /* ANIMATIONS ================ */
-  @-webkit-keyframes inputHighlighter {
-      from { background:#5264AE; }
-    to 	{ width:0; background:transparent; }
-  }
-  @-moz-keyframes inputHighlighter {
-      from { background:#5264AE; }
-    to 	{ width:0; background:transparent; }
-  }
-  @keyframes inputHighlighter {
-      from { background:#5264AE; }
-    to 	{ width:0; background:transparent; }
-  }
-
-@media only screen and (max-width: 750px) {
+@media only screen and (min-width: 750px) {
     #divContent {
-        width: calc(100% - 40px);
-        padding: 30px 20px 30px 20px
-    }
-
-    #imgLogo {
-        width: calc(100% - 120px);
-    }
-
-    #groupPassword {
-        margin-bottom: 20px;;
+        margin-top: 50px
     }
 }

@@ -15,26 +15,29 @@
 </head>
 
 <body>
-    <img id="imgLogo" src="img/logo.png"></img>
     <div id="divContent">
-        <div id="divRegister">
-            <div class="group">      
-                <input type="text" id="tbName" required>
-                <span class="highlight"></span>
-                <span class="bar"></span>
-                <label>Naam</label>
+        <img id="imgLogo" src="img/logo(trans).png"></img>
+        <div id="divRegister"> 
+            <label class="inputLabel">Naam</label>
+            <div class="col-3">
+                <input class="effect-8" type="text" id="tbName" placeholder="Naam">
+                    <span class="focus-border">
+                        <i></i>
+                    </span>
             </div>
-            <div class="group">      
-                <input type="text" id="tbUserName" required>
-                <span class="highlight"></span>
-                <span class="bar"></span>
-                <label>Gebruikersnaam</label>
+            <label class="inputLabel">Gebruikersnaam</label>
+            <div class="col-3">
+                <input class="effect-8" type="text" id="tbUserName" placeholder="Gebruikersnaam">
+                    <span class="focus-border">
+                        <i></i>
+                    </span>
             </div>
-            <div id="groupPassword" class="group">      
-                <input type="password" id="tbPassword" required>
-                <span class="highlight"></span>
-                <span class="bar"></span>
-                <label>Wachtwoord</label>
+            <label class="inputLabel">Wachtwoord</label>
+            <div class="col-3">
+                <input class="effect-8" type="password" id="tbPassword" placeholder="Wachtwoord">
+                    <span class="focus-border">
+                        <i></i>
+                    </span>
             </div>
             <button id="btnJoin">Aanmelden</button>
             <hr>
@@ -42,28 +45,30 @@
             <a id="btnAlreadyAccount">Log in</a>
         </div>
         <div id="divSignIn" style="display:none;">
-                <div class="group">      
-                    <input type="text" id="tbSignInUserName" required>
-                    <span class="highlight"></span>
-                    <span class="bar"></span>
-                    <label>Gebruikersnaam</label>
-                </div>
-                <div id="groupPassword" class="group">      
-                    <input type="password" id="tbSignInPassword" required>
-                    <span class="highlight"></span>
-                    <span class="bar"></span>
-                    <label>Wachtwoord</label>
-                </div>
-                <button id="btnSignIn">Inloggen</button>
-                <hr>
-                <span >Nog niet bruin?</span>
-                <a id="btnNoAccountYet">Maak een account aan</a>
+            <label class="inputLabel">Gebruikersnaam</label>
+            <div class="col-3">
+                <input class="effect-8" type="text" id="tbSignInUserName" placeholder="Gebruikersnaam">
+                    <span class="focus-border">
+                        <i></i>
+                    </span>
             </div>
+            <label class="inputLabel">Wachtwoord</label>
+            <div class="col-3">
+                <input class="effect-8" type="password" id="tbSignInPassword" placeholder="Wachtwoord">
+                    <span class="focus-border">
+                        <i></i>
+                    </span>
+            </div>
+            <button id="btnSignIn">Inloggen</button>
+            <hr>
+            <span >Nog niet bruin?</span>
+            <a id="btnNoAccountYet">Maak een account aan</a>
+        </div>
     </div>
     <footer>
-        <h2 id="faceDown" class="subtitle">Face down</h2>
-        <h2 id="bootyUp" class="subtitle">Booty up</h2>
-        <h2 id="timber" class="subtitle">"Timber"</h2>
+        <h2 id="faceDown" class="subtitle">"Face down</h2>
+        <h2 id="bootyUp" class="subtitle">Booty up"</h2>
+        <h2 id="timber" class="subtitle">Timber</h2>
     </footer>
     <script src="https://code.jquery.com/jquery-latest.min.js"></script>
     <script src="js/touchPunch.js"></script>
