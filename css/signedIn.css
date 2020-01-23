@@ -59,6 +59,7 @@ header i {
     margin-bottom: 10px;
     margin-right: 0;
     background-color: #ffffff;
+    box-shadow: 1px 1px 10px 1px #e0e0e0;
 }
 
 .divSong:hover {
@@ -90,7 +91,7 @@ header i {
     width: 0;
     height: calc(100% - 70px);
     padding: 0;
-    animation: 0.5s;
+    transition: all 0.5s;
     overflow: hidden;
 }
 
@@ -125,6 +126,7 @@ h3 {
     background-color: white;
     margin-bottom: 10px;
     cursor: pointer;
+    box-shadow: 1px 1px 10px 1px #e0e0e0;
 }
 
 .divSelectedSong:hover {
