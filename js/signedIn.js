@@ -215,7 +215,7 @@ if (!window.bruin) var bruin = {
 
                 setTimeout(function(){ 
                     bruin.data.deleteClicks = 0;
-                 }, 500);
+                 }, 200);
             });
 
             return divSong;
