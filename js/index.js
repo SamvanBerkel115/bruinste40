@@ -50,9 +50,7 @@ if (!window.bruin) var bruin = {
         users: []
     },
     validate: function(userObj) {
-        if (userObj.firstName.length < 2) {
-            return false;
-        } else if (userObj.lastName.length < 2) {
+        if (userObj.name.length < 2) {
             return false;
         } else if (userObj.userName.length < 2) {
             return false;
@@ -61,8 +59,7 @@ if (!window.bruin) var bruin = {
         }
     },
     clear: function() {
-        Id('tbFirstName').value = "",
-        Id('tbLastName').value = "",
+        Id('tbName').value = "",
         Id('tbUserName').value = "",
         Id('tbPassword').value = ""
     },
@@ -73,8 +70,7 @@ if (!window.bruin) var bruin = {
 
         Id('btnJoin').onclick = async function() {
             let newUserObj = {
-                firstName: Id('tbFirstName').value,
-                lastName: Id('tbLastName').value,
+                name: Id('tbName').value,
                 userName: Id('tbUserName').value,
                 password: Id('tbPassword').value,
                 selectedSongs: []
