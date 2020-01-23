@@ -49,6 +49,17 @@ if (!window.bruin) var bruin = {
         songs: [],
         users: []
     },
+    validate: function(userObj) {
+        if (userObj.firstName.length < 2) {
+            return false;
+        } else if (userObj.lastName.length < 2) {
+            return false;
+        } else if (userObj.userName.length < 2) {
+            return false;
+        } else if (userObj.password.length < 2) {
+            return false;
+        }
+    },
     clear: function() {
         Id('tbFirstName').value = "",
         Id('tbLastName').value = "",
@@ -67,6 +78,10 @@ if (!window.bruin) var bruin = {
                 userName: Id('tbUserName').value,
                 password: Id('tbPassword').value,
                 selectedSongs: []
+            }
+
+            if (!bruin.validate(newUserObj)) {
+                return;
             }
 
             const users = await bruin.rest.get.users();
