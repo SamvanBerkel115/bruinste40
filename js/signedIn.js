@@ -74,13 +74,9 @@ if (!window.bruin) var bruin = {
                 let divSong = document.createElement('div');
                 divSong.classList.add('divSong');
                 divSong.params = song;
-    
-                let trackText = song.track;
-                if (trackText.length > 35) {
-                    trackText = trackText.substring(0, 35) + "...";
-                }
+
                 let pTrack = document.createElement('p');
-                pTrack.innerHTML = trackText;
+                pTrack.innerHTML = song.track;
                 pTrack.classList.add('pTrack');
                 divSong.appendChild(pTrack);
     
@@ -163,12 +159,8 @@ if (!window.bruin) var bruin = {
             divSong.classList.add('ui-state-default"');
             divSong.params = songObj;
 
-            let pTrack = document.createElement('span');
-            let trackText = songObj.track;
-            if (trackText.length > 25) {
-                trackText = trackText.substring(0, 25) + "..."
-            }
-            pTrack.innerHTML = trackText;
+            let pTrack = document.createElement('p');
+            pTrack.innerHTML = songObj.track;
             pTrack.classList.add('pTrack');
             divSong.appendChild(pTrack);
 

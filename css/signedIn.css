@@ -144,6 +144,8 @@ input {
 .pTrack {
     font-weight: bold;
     margin-bottom: 5px;
+    max-height: 17px;
+    overflow: hidden;
     color: #404040;
 }
 
@@ -195,6 +197,7 @@ h3 {
 }
 
 .divSelectedSong {
+    position: relative;
     padding: 12px;
     background-color: white;
     margin-bottom: 10px;
@@ -206,13 +209,19 @@ h3 {
     box-shadow: 1px 1px 10px 1px #c3c3c3;
 }
 
-.divSelectedSong span {
+.divSelectedSong p {
     font-size: 0.9em;
+    max-height: 13px;
+    max-width: calc(100% - 20px);
+    display: inline-block;
+    margin-bottom: 0;
 }
 
 .btnDeleteSong {
-    float: right;
-    color: #404040; 
+    position: absolute;
+    right: 20px;
+    top: 13px;
+    color: #404040;
 }
 
 .btnDeleteSong:hover {
