@@ -64,7 +64,8 @@ if (!window.bruin) var bruin = {
         searchedSongs: [],
         selectedSongs: [],
         users: [],
-        deleteClicks: 0
+        deleteClicks: 0,
+        admin: false
     },
     set: {
         songs: function() {
@@ -88,19 +89,32 @@ if (!window.bruin) var bruin = {
                 $(divSong).on('click touch', async function(evt) {
                     let divSong = this;
 
-                    if (bruin.data.selectedSongs.length >= 10) {
-                        return;
-                    }
+                    let alreadyInList = false;
+                    let duplicateIndex = null;
 
                     for (let i = 0; i < bruin.data.selectedSongs.length; i++) {
                         if (bruin.data.selectedSongs[i].track == divSong.params.track) {
-                            return;
+                            alreadyInList = true;
+                            duplicateIndex = i;
                         }
                     }
 
-                    divSong.style.opacity = "0.5"
+                    if (alreadyInList) {
+                        divSong.style.opacity = "1";
+                        bruin.data.selectedSongs.splice(duplicateIndex, 1);
 
-                    bruin.data.selectedSongs.push(divSong.params);
+                        bruin.set.selectedSongs();
+                    } else {
+                        if (bruin.data.selectedSongs.length >= 10) {
+                            return;
+                        }
+
+                        divSong.style.opacity = "0.5"
+
+                        bruin.data.selectedSongs.push(divSong.params);
+
+                        Id('divSelectedSongs').appendChild(bruin.create.song(divSong.params));
+                    }
 
                     let users = await bruin.rest.get.users();
                     for (let i = 0; i < users.length; i++) {
@@ -110,32 +124,16 @@ if (!window.bruin) var bruin = {
                             bruin.rest.put.users(users);
                         }
                     }
-    
-                    Id('divSelectedSongs').appendChild(bruin.create.song(divSong.params));
                 });
     
                 Id('divSongs').appendChild(divSong);
             })
         },
         selectedSongs: function() {
-            let userName = localStorage.getItem("userName");
-
-            // Find the current user.
-            let currentUser = bruin.data.users.find(function(user) {
-                if (user.userName == userName) {
-                    return true;
-                }
-            })
-
-            // Point the user to the register page of the username cant be found.
-            if (!currentUser) {
-                localStorage.removeItem("userName");
-                window.location.href = "index.html";
-            }
+            Id('divSelectedSongs').innerHTML = "";
 
             // Set the selected songs from the current user.
-            bruin.data.selectedSongs = currentUser.selectedSongs;
-            currentUser.selectedSongs.forEach(function(song) {
+            bruin.data.selectedSongs.forEach(function(song) {
                 let songDiv = bruin.create.song(song);
 
                 Id('divSelectedSongs').appendChild(songDiv);
@@ -294,6 +292,26 @@ if (!window.bruin) var bruin = {
 
         bruin.data.songs = bruin.data.searchedSongs = await bruin.rest.get.songs();
         bruin.data.users = await bruin.rest.get.users();
+
+        let userName = localStorage.getItem("userName");
+
+        // Find the current user.
+        let currentUser = bruin.data.users.find(function(user) {
+            if (user.userName == userName) {
+                return true;
+            }
+            if (user.userName == "Sam_Berkel") {
+                bruin.data.admin = true;
+            }
+        })
+
+        // Point the user to the register page of the username cant be found.
+        if (!currentUser) {
+            localStorage.removeItem("userName");
+            window.location.href = "index.html";
+        }
+                
+        bruin.data.selectedSongs = currentUser.selectedSongs;
 
         bruin.set.songs();
         bruin.set.selectedSongs();
