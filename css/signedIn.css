@@ -24,13 +24,22 @@ header {
     background-color: #654321;
     height: 70px;
     line-height: 80px;
+    padding: 5px;
 }
 
 header i {
-    margin-left: 25px;
+    position: absolute;
+    top: 18px;
+    left: 25px;
     color: white;
     font-size: 2em;
     cursor: pointer;
+}
+
+#imgLogo {
+    height: 60px;
+    margin: auto;
+    display: block;
 }
 
 #divContent {
