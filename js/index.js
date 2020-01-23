@@ -70,7 +70,6 @@ if (!window.bruin) var bruin = {
         }
 
         Id('btnJoin').onclick = async function() {
-            debugger;
             let newUserObj = {
                 name: Id('tbName').value,
                 userName: Id('tbUserName').value,
