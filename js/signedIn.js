@@ -260,16 +260,22 @@ if (!window.bruin) var bruin = {
             bruin.set.songs();
         }
 
-        $('#menuButton').on('click', function(evt) {
-            if (Id('divJouwBruine').dataset.hidden == "true") {
-                Id('divJouwBruine').style.width = "100%";
-                Id('divJouwBruine').style.padding = "30px";
-                Id('divJouwBruine').dataset.hidden = false;  
-            } else {
-                Id('divJouwBruine').style.width = "0";
-                Id('divJouwBruine').style.padding = "0";
-                Id('divJouwBruine').dataset.hidden = true;  
-            }
+        $('#btnOpenJouwBruine').on('click', function(evt) {
+            Id('divJouwBruine').style.width = "100%";
+            Id('divJouwBruine').style.padding = "30px";
+            Id('divJouwBruine').dataset.hidden = false;
+
+            Id('btnOpenJouwBruine').style.display = "none";
+            Id('btnCloseJouwBruine').style.display = "inline-block";
+        });
+
+        $('#btnCloseJouwBruine').on('click', function(evt) {
+            Id('divJouwBruine').style.width = "0";
+            Id('divJouwBruine').style.padding = "0";
+            Id('divJouwBruine').dataset.hidden = true;
+
+            Id('btnOpenJouwBruine').style.display = "inline-block";
+            Id('btnCloseJouwBruine').style.display = "none";
         });
 
         $("#divSelectedSongs").sortable();
