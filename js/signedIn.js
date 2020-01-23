@@ -84,7 +84,7 @@ if (!window.bruin) var bruin = {
                 pArtist.classList.add('pArtist');
                 divSong.appendChild(pArtist);
     
-                $(divSong).on('click', async function(evt) {
+                $(divSong).on('click touch', async function(evt) {
                     let divSong = this;
 
                     if (bruin.data.selectedSongs.length >= 10) {
@@ -174,7 +174,7 @@ if (!window.bruin) var bruin = {
             iconDelete.params = songObj;
             divSong.appendChild(iconDelete);
 
-            $(iconDelete).on('click touchstart', async function(evt) {
+            $(iconDelete).on('click touch', async function(evt) {
                 let btn = this;
 
                 // Remove the song from the selected songs data.
@@ -260,7 +260,7 @@ if (!window.bruin) var bruin = {
             bruin.set.songs();
         }
 
-        $('#btnOpenJouwBruine').on('click', function(evt) {
+        $('#btnOpenJouwBruine').on('click touch', function(evt) {
             Id('divJouwBruine').style.width = "100%";
             Id('divJouwBruine').style.padding = "30px";
             Id('divJouwBruine').dataset.hidden = false;
@@ -269,7 +269,7 @@ if (!window.bruin) var bruin = {
             Id('btnCloseJouwBruine').style.display = "inline-block";
         });
 
-        $('#btnCloseJouwBruine').on('click', function(evt) {
+        $('#btnCloseJouwBruine').on('click touch', function(evt) {
             Id('divJouwBruine').style.width = "0";
             Id('divJouwBruine').style.padding = "0";
             Id('divJouwBruine').dataset.hidden = true;
