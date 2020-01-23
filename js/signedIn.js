@@ -63,8 +63,7 @@ if (!window.bruin) var bruin = {
         songs: [],
         searchedSongs: [],
         selectedSongs: [],
-        users: [],
-        chosen: []
+        users: []
     },
     set: {
         songs: function() {
@@ -85,7 +84,7 @@ if (!window.bruin) var bruin = {
                 pArtist.classList.add('pArtist');
                 divSong.appendChild(pArtist);
     
-                divSong.onclick = function(evt) {
+                divSong.onclick = async function(evt) {
                     let divSong = this;
 
                     if (bruin.data.selectedSongs.length >= 10) {
@@ -102,56 +101,98 @@ if (!window.bruin) var bruin = {
 
                     bruin.data.selectedSongs.push(divSong.params);
 
-                    let divSelectedSong = document.createElement('li');
-                    divSelectedSong.classList.add('divSelectedSong');
-                    divSelectedSong.classList.add('ui-state-default"');
-                    divSelectedSong.params = divSong.params;
-
-                    let pTrack = document.createElement('span');
-                    pTrack.innerHTML = divSong.params.track;
-                    pTrack.classList.add('pTrack');
-                    divSelectedSong.appendChild(pTrack);
-
-                    let iconDelete = document.createElement('i');
-                    iconDelete.classList.add("fas");
-                    iconDelete.classList.add("fa-trash-alt");
-                    iconDelete.classList.add("btnDeleteSong");
-                    iconDelete.params = divSong.params;
-                    divSelectedSong.appendChild(iconDelete);
-
-                    iconDelete.onclick = function(evt) {
-                        let btn = this;
-
-                        // Remove the song from the selected songs data.
-                        bruin.data.selectedSongs = bruin.data.selectedSongs.filter(function(song) {
-                            if (song.track == btn.params.track) {
-                                return false;
-                            } else {
-                                return true;
-                            }
-                        })
-
-                        // Remove the div from the selected list.
-                        let songDiv = btn.parentElement;
-                        songDiv.parentElement.removeChild(songDiv);
-
-                        // Set the opacity back in the songs list.
-                        let childNodes = Id('divSongs').childNodes;
-
-                        for (let i = 0; i < childNodes.length; i++) {
-                            if (childNodes[i].classList.contains("divSong")) {
-                                if (childNodes[i].params.track == btn.params.track) {
-                                    childNodes[i].style.opacity = "1";
-                                }
-                            }
+                    let users = await bruin.rest.get.users();
+                    for (let i = 0; i < users.length; i++) {
+                        if (localStorage.getItem('userName') == users[i].userName) {
+                            users[i].selectedSongs = bruin.data.selectedSongs;
+                        
+                            bruin.rest.put.users(users);
                         }
                     }
     
-                    Id('divSelectedSongs').appendChild(divSelectedSong);
+                    Id('divSelectedSongs').appendChild(bruin.create.song(divSong.params));
                 }
     
                 Id('divSongs').appendChild(divSong);
             })
+        },
+        selectedSongs: function() {
+            let userName = localStorage.getItem("userName");
+
+            // Find the current user.
+            let currentUser = bruin.data.users.find(function(user) {
+                if (user.userName == userName) {
+                    return true;
+                }
+            })
+
+            // Set the selected songs from the current user.
+            bruin.data.selectedSongs = currentUser.selectedSongs;
+            currentUser.selectedSongs.forEach(function(song) {
+                let songDiv = bruin.create.song(song);
+
+                Id('divSelectedSongs').appendChild(songDiv);
+
+                // Set the opacity of the selected songs in the complete song list.
+                let childNodes = Id('divSongs').childNodes;
+                for (let i = 0; i < childNodes.length; i++) {
+                    if (childNodes[i].classList.contains("divSong")) {
+                        if (childNodes[i].params.track == song.track) {
+                            childNodes[i].style.opacity = "0.5";
+                        }
+                    }
+                }
+            });
+        }
+    },
+    create: {
+        song: function(songObj) {
+            let divSong = document.createElement('li');
+            divSong.classList.add('divSelectedSong');
+            divSong.classList.add('ui-state-default"');
+            divSong.params = songObj;
+
+            let pTrack = document.createElement('span');
+            pTrack.innerHTML = songObj.track;
+            pTrack.classList.add('pTrack');
+            divSong.appendChild(pTrack);
+
+            let iconDelete = document.createElement('i');
+            iconDelete.classList.add("fas");
+            iconDelete.classList.add("fa-trash-alt");
+            iconDelete.classList.add("btnDeleteSong");
+            iconDelete.params = songObj;
+            divSong.appendChild(iconDelete);
+
+            iconDelete.onclick = function(evt) {
+                let btn = this;
+
+                // Remove the song from the selected songs data.
+                bruin.data.selectedSongs = bruin.data.selectedSongs.filter(function(song) {
+                    if (song.track == btn.params.track) {
+                        return false;
+                    } else {
+                        return true;
+                    }
+                })
+
+                // Remove the div from the selected list.
+                let songDiv = btn.parentElement;
+                songDiv.parentElement.removeChild(songDiv);
+
+                // Set the opacity back in the songs list.
+                let childNodes = Id('divSongs').childNodes;
+
+                for (let i = 0; i < childNodes.length; i++) {
+                    if (childNodes[i].classList.contains("divSong")) {
+                        if (childNodes[i].params.track == btn.params.track) {
+                            childNodes[i].style.opacity = "1";
+                        }
+                    }
+                }
+            }
+
+            return divSong;
         }
     },
     clear: function() {
@@ -203,7 +244,10 @@ if (!window.bruin) var bruin = {
         $("#divSelectedSongs").disableSelection();
 
         bruin.data.songs = bruin.data.searchedSongs = await bruin.rest.get.songs();
+        bruin.data.users = await bruin.rest.get.users();
+
         bruin.set.songs();
+        bruin.set.selectedSongs();
     }
 }
 

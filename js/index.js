@@ -65,7 +65,8 @@ if (!window.bruin) var bruin = {
                 firstName: Id('tbFirstName').value,
                 lastName: Id('tbLastName').value,
                 userName: Id('tbUserName').value,
-                password: Id('tbPassword').value
+                password: Id('tbPassword').value,
+                selectedSongs: []
             }
 
             const users = await bruin.rest.get.users();
