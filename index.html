@@ -42,13 +42,17 @@
             <a id="btnAlreadyAccount">Log in</a>
         </div>
         <div id="divSignIn" style="display:none;">
-                <div>
-                    <label class="inputTitle">Gebruikersnaam</label>
-                    <input type="text" id="tbSignInUserName">
+                <div class="group">      
+                    <input type="text" id="tbSignInUserName" required>
+                    <span class="highlight"></span>
+                    <span class="bar"></span>
+                    <label>Gebruikersnaam</label>
                 </div>
-                <div>
-                    <label class="inputTitle">Wachtwoord</label>
-                    <input type="password" id="tbSignInPassword">
+                <div id="groupPassword" class="group">      
+                    <input type="password" id="tbSignInPassword" required>
+                    <span class="highlight"></span>
+                    <span class="bar"></span>
+                    <label>Wachtwoord</label>
                 </div>
                 <button id="btnSignIn">Inloggen</button>
                 <hr>
