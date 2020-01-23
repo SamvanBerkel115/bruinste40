@@ -219,7 +219,7 @@ if (!window.bruin) var bruin = {
 
                 setTimeout(function(){ 
                     bruin.data.deleteClicks = 0;
-                 }, 1000);
+                 }, 500);
             });
 
             return divSong;
