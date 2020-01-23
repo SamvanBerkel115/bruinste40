@@ -57,6 +57,7 @@ if (!window.bruin) var bruin = {
         } else if (userObj.password.length < 2) {
             return false;
         }
+        return true;
     },
     clear: function() {
         Id('tbName').value = "",
@@ -69,6 +70,7 @@ if (!window.bruin) var bruin = {
         }
 
         Id('btnJoin').onclick = async function() {
+            debugger;
             let newUserObj = {
                 name: Id('tbName').value,
                 userName: Id('tbUserName').value,
