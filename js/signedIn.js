@@ -63,7 +63,8 @@ if (!window.bruin) var bruin = {
         songs: [],
         searchedSongs: [],
         selectedSongs: [],
-        users: []
+        users: [],
+        deleteClicks: 0
     },
     set: {
         songs: function() {
@@ -175,9 +176,10 @@ if (!window.bruin) var bruin = {
             divSong.appendChild(iconDelete);
 
             $(iconDelete).on('click touch', async function(evt) {
-                if(evt.originalEvent.detail > 1){
+                if (bruin.data.deleteClicks > 0) {
                     return;
-                 }
+                }
+                bruin.data.deleteClicks++;
 
                 let btn = this;
 
@@ -214,6 +216,10 @@ if (!window.bruin) var bruin = {
                         bruin.rest.put.users(users);
                     }
                 }
+
+                setTimeout(function(){ 
+                    bruin.data.deleteClicks = 0;
+                 }, 1000);
             });
 
             return divSong;
