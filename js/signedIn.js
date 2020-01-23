@@ -261,6 +261,18 @@ if (!window.bruin) var bruin = {
             bruin.set.songs();
         }
 
+        $('#menuButton').on('click', function(evt) {
+            if (Id('divJouwBruine').dataset.hidden == "true") {
+                Id('divJouwBruine').style.width = "100%";
+                Id('divJouwBruine').style.padding = "30px";
+                Id('divJouwBruine').dataset.hidden = false;  
+            } else {
+                Id('divJouwBruine').style.width = "0";
+                Id('divJouwBruine').style.padding = "0";
+                Id('divJouwBruine').dataset.hidden = true;  
+            }
+        });
+
         $("#divSelectedSongs").sortable();
         $("#divSelectedSongs").disableSelection();
 
