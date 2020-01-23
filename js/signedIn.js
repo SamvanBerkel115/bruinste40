@@ -126,6 +126,12 @@ if (!window.bruin) var bruin = {
                 }
             })
 
+            // Point the user to the register page of the username cant be found.
+            if (!currentUser) {
+                localStorage.removeItem("userName");
+                window.location.href = "index.html";
+            }
+
             // Set the selected songs from the current user.
             bruin.data.selectedSongs = currentUser.selectedSongs;
             currentUser.selectedSongs.forEach(function(song) {
