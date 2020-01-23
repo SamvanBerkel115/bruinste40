@@ -18,17 +18,23 @@
     <img id="imgLogo" src="img/logo.png"></img>
     <div id="divContent">
         <div id="divRegister">
-            <div>
-                <label class="inputTitle">Naam</label>
-                <input type="text" id="tbName">
+            <div class="group">      
+                <input type="text" id="tbName" required>
+                <span class="highlight"></span>
+                <span class="bar"></span>
+                <label>Naam</label>
             </div>
-            <div>
-                <label class="inputTitle">Gebruikersnaam</label>
-                <input type="text" id="tbUserName">
+            <div class="group">      
+                <input type="text" id="tbUserName" required>
+                <span class="highlight"></span>
+                <span class="bar"></span>
+                <label>Gebruikersnaam</label>
             </div>
-            <div>
-                <label class="inputTitle">Wachtwoord</label>
-                <input type="password" id="tbPassword">
+            <div class="group">      
+                <input type="password" id="tbPassword" required>
+                <span class="highlight"></span>
+                <span class="bar"></span>
+                <label>Wachtwoord</label>
             </div>
             <button id="btnJoin">Aanmelden</button>
             <hr>
