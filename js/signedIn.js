@@ -175,6 +175,7 @@ if (!window.bruin) var bruin = {
             divSong.appendChild(iconDelete);
 
             $(iconDelete).on('click touchend', async function(evt) {
+                stopPropagation();
                 let btn = this;
 
                 // Remove the song from the selected songs data.
