@@ -278,7 +278,12 @@ if (!window.bruin) var bruin = {
             Id('btnCloseJouwBruine').style.display = "none";
         });
 
-        $("#divSelectedSongs").sortable();
+        $("#divSelectedSongs").sortable({
+            update: function(event, ui) {
+                let listItems = Id('divSelectedSongs').childNodes;
+
+            }
+        });
         $("#divSelectedSongs").disableSelection();
 
         bruin.data.songs = bruin.data.searchedSongs = await bruin.rest.get.songs();
