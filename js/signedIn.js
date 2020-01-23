@@ -84,7 +84,7 @@ if (!window.bruin) var bruin = {
                 pArtist.classList.add('pArtist');
                 divSong.appendChild(pArtist);
     
-                divSong.onclick = async function(evt) {
+                $(divSong).on('click touchstart', async function(evt) {
                     let divSong = this;
 
                     if (bruin.data.selectedSongs.length >= 10) {
@@ -111,7 +111,7 @@ if (!window.bruin) var bruin = {
                     }
     
                     Id('divSelectedSongs').appendChild(bruin.create.song(divSong.params));
-                }
+                });
     
                 Id('divSongs').appendChild(divSong);
             })
@@ -164,7 +164,7 @@ if (!window.bruin) var bruin = {
             iconDelete.params = songObj;
             divSong.appendChild(iconDelete);
 
-            iconDelete.onclick = function(evt) {
+            $(iconDelete).on('click touchstart', function(evt) {
                 let btn = this;
 
                 // Remove the song from the selected songs data.
@@ -190,7 +190,7 @@ if (!window.bruin) var bruin = {
                         }
                     }
                 }
-            }
+            });
 
             return divSong;
         }
