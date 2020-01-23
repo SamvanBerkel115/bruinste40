@@ -161,7 +161,13 @@ h2 {
 #timber {
     margin-top: 30px;
     margin-bottom: 30px;
+    font-style: normal;
     font-weight: bold;
+}
+
+#mrWorldwide {
+    font-style: normal;
+    letter-spacing: 2px;
 }
 
 @media only screen and (min-width: 750px) {
