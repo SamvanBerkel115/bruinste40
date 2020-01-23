@@ -73,15 +73,21 @@ a {
 
 #timber {
     margin-top: 30px;
+    margin-bottom: 30px;
     font-weight: bold;
 }
 
 @media only screen and (max-width: 750px) {
     #divContent {
-        width: calc(100% - 120px);
+        width: calc(100% - 80px);
+        padding: 30px 20px 30px 20px
     }
 
     #imgLogo {
         width: calc(100% - 120px);
+    }
+
+    input {
+        margin-bottom: 15px;
     }
 }
