@@ -56,6 +56,16 @@ if (!window.bruin) var bruin = {
                 });
 
                 return result;
+            },
+            selectedSongs: async function() {
+                let users = await bruin.rest.get.users();
+                for (let i = 0; i < users.length; i++) {
+                    if (localStorage.getItem('userName') == users[i].userName) {
+                        users[i].selectedSongs = bruin.data.selectedSongs;
+                    
+                        bruin.rest.put.users(users);
+                    }
+                }
             }
         }
     },
@@ -116,14 +126,7 @@ if (!window.bruin) var bruin = {
                         Id('divSelectedSongs').appendChild(bruin.create.song(divSong.params));
                     }
 
-                    let users = await bruin.rest.get.users();
-                    for (let i = 0; i < users.length; i++) {
-                        if (localStorage.getItem('userName') == users[i].userName) {
-                            users[i].selectedSongs = bruin.data.selectedSongs;
-                        
-                            bruin.rest.put.users(users);
-                        }
-                    }
+                    bruin.rest.put.selectedSongs();
                 });
     
                 Id('divSongs').appendChild(divSong);
@@ -132,8 +135,13 @@ if (!window.bruin) var bruin = {
         selectedSongs: function() {
             Id('divSelectedSongs').innerHTML = "";
 
+            index = 0;
+
             // Set the selected songs from the current user.
             bruin.data.selectedSongs.forEach(function(song) {
+                song.order = index;
+                index++;
+
                 let songDiv = bruin.create.song(song);
 
                 Id('divSelectedSongs').appendChild(songDiv);
@@ -286,6 +294,15 @@ if (!window.bruin) var bruin = {
             update: function(event, ui) {
                 let listItems = Id('divSelectedSongs').childNodes;
 
+                let selectedSongs = [];
+
+                listItems.forEach(function(songDiv) {
+                    selectedSongs.push(songDiv.params);
+                });
+
+                bruin.data.selectedSongs = selectedSongs;
+
+                bruin.rest.put.selectedSongs();
             }
         });
         $("#divSelectedSongs").disableSelection();
