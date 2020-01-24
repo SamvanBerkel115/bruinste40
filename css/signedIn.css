@@ -76,7 +76,6 @@ input {
 }
 
 .inputField {
-    margin-top: 70px;
     border: 1px solid #ccc;
     padding: 7px 14px 9px;
     transition: 0.4s;
@@ -130,7 +129,7 @@ input {
 #divSongSelection {
     width: 700px;
     height: 100%;
-    padding: 30px;
+    padding: 100px 30px 30px 30px;
     grid-column: 4;
 }
 

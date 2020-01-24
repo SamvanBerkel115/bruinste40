@@ -128,6 +128,13 @@ if (!window.bruin) var bruin = {
 
                     bruin.rest.put.selectedSongs();
                 });
+
+                // Set the selected songs from the current user.
+                bruin.data.selectedSongs.forEach(function(selectedSong) {
+                    if (selectedSong.track == song.track) {
+                        divSong.style.opacity = "0.5";
+                    }
+                });
     
                 Id('divSongs').appendChild(divSong);
             })
@@ -221,6 +228,48 @@ if (!window.bruin) var bruin = {
 
             return divSong;
         }
+    },
+    calculateResults: function() {
+        let results = [];
+        bruin.data.users.forEach(function(user) {
+            for (let i = 0; i < user.selectedSongs.length; i++) {
+                var currentSong = user.selectedSongs[i];
+
+                var found = false;
+                var foundIndex = null;
+
+                for(var j = 0; j < results.length; j++) {
+                    if (results[j].song.track == currentSong.track) {
+                        found = true;
+                        foundIndex = j;
+                        break;
+                    }
+                }
+
+                var points = Math.ceil((20 - i) / 5);
+
+                if (found) {
+                    results[foundIndex].points += points;
+                } else {
+                    results.push({
+                        song: currentSong,
+                        points: points
+                    })
+                }
+            }
+        });
+
+        results.sort(function(song1, song2) {
+            if (song1.points < song2.points) {
+                return -1;
+            } else if (song1.points > song2.points) {
+                return 1;
+            } else {
+                return 0;
+            }
+        })
+
+        console.log(results);
     },
     clear: function() {
     },
