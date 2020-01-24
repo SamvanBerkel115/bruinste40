@@ -197,6 +197,7 @@ h3 {
 
 #numberList p {
     font-size: 14px;
+    max-height: 14px;
     margin-top: 14px;
     margin-bottom: 34px;
     font-weight: bold;
