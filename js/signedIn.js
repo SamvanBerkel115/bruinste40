@@ -354,7 +354,6 @@ function touchHandler(event) {
         false, false, false, 0, null);
 
     touch.target.dispatchEvent(simulatedEvent);
-    event.preventDefault();
 }
 
 var Id = function(id) {
