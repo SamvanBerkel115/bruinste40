@@ -169,7 +169,8 @@ input {
     top: 70px;
     background-color: var(--light-brown);
     width: 0;
-    height: calc(100% - 70px);
+    min-height: calc(100% - 70px);
+    height: fit-content;
     padding: 0;
     transition: all 0.5s;
     overflow: hidden;
@@ -198,43 +199,75 @@ h3 {
     color: var(--main-brown)
 }
 
-#number1{
-    
-}
-
-#number2{
+#number3{
     opacity: 0.95;
 }
 
-#number3{
-    opacity: 0.90;
-}
-
 #number4{
-    opacity: 0.85;
+    opacity: 0.95;
 }
 
 #number5{
-    opacity: 0.80;
+    opacity: 0.90;
 }
 
 #number6{
-    opacity: 0.75;
+    opacity: 0.90;
 }
 
 #number7{
-    opacity: 0.70;
+    opacity: 0.85;
 }
 
 #number8{
-    opacity: 0.65;
+    opacity: 0.85;
 }
 
 #number9{
-    opacity: 0.60;
+    opacity: 0.80;
 }
 
 #number10{
+    opacity: 0.80;
+}
+
+#number11 {
+    opacity: 0.75;
+}
+
+#number12 {
+    opacity: 0.75;
+}
+
+#number13 {
+    opacity: 0.70;
+}
+
+#number14 {
+    opacity: 0.70;
+}
+
+#number15 {
+    opacity: 0.65;
+}
+
+#number16 {
+    opacity: 0.65;
+}
+
+#number17 {
+    opacity: 0.60;
+}
+
+#number18 {
+    opacity: 0.60;
+}
+
+#number19 {
+    opacity: 0.55;
+}
+
+#number20 {
     opacity: 0.55;
 }
 

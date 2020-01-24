@@ -115,7 +115,7 @@ if (!window.bruin) var bruin = {
 
                         bruin.set.selectedSongs();
                     } else {
-                        if (bruin.data.selectedSongs.length >= 10) {
+                        if (bruin.data.selectedSongs.length >= 20) {
                             return;
                         }
 
@@ -135,13 +135,8 @@ if (!window.bruin) var bruin = {
         selectedSongs: function() {
             Id('divSelectedSongs').innerHTML = "";
 
-            index = 0;
-
             // Set the selected songs from the current user.
             bruin.data.selectedSongs.forEach(function(song) {
-                song.order = index;
-                index++;
-
                 let songDiv = bruin.create.song(song);
 
                 Id('divSelectedSongs').appendChild(songDiv);
@@ -332,6 +327,10 @@ if (!window.bruin) var bruin = {
 
         bruin.set.songs();
         bruin.set.selectedSongs();
+
+        let requiredHeight = parseInt(Id('numberList').offsetHeight, 10) + 50;
+
+        Id('divJouwBruine').style.height = requiredHeight + 'px';
     }
 }
 
