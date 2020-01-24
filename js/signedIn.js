@@ -286,6 +286,7 @@ if (!window.bruin) var bruin = {
         });
 
         $("#divSelectedSongs").sortable({
+            scroll : false,
             update: function(event, ui) {
                 let listItems = Id('divSelectedSongs').childNodes;
 
@@ -300,17 +301,6 @@ if (!window.bruin) var bruin = {
                 bruin.rest.put.selectedSongs();
             }
         })
-        
-        $("#divSelectedSongs").on('drag', function(el, source) {
-            // On mobile this prevents the default page scrolling while dragging an item.
-            $(document).on('touchstart', function(e) {
-                e.preventDefault();
-            });
-        }).on('drop', function(el, target, source, sibling) {
-            // On mobile this turns on default page scrolling after the end of a drag drop.
-            $(document).off('touchstart');
-        });
-
 
         $("#divSelectedSongs").disableSelection();
         $("#divSelectedSongs").sortable("option", "axis", "y");
