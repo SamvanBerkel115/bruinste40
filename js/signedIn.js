@@ -95,6 +95,13 @@ if (!window.bruin) var bruin = {
                 pArtist.innerHTML = song.artist;
                 pArtist.classList.add('pArtist');
                 divSong.appendChild(pArtist);
+
+                if (song.spotifyLink) {
+                    let spotifyFrame = document.createElement('iframe');
+                    spotifyFrame.classList.add("songSpotifyFrame");
+                    spotifyFrame.setAttribute("src", song.spotifyLink);
+                    divSong.appendChild(spotifyFrame);
+                }
     
                 $(divSong).on('click touch', async function(evt) {
                     let divSong = this;
