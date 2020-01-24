@@ -49,6 +49,11 @@ header i {
     height: calc(100% - 70px);
 }
 
+#bruinePlayer {
+    width: 100%;
+    height: 250px;
+}
+
 /* Song list */
 /* Input fields */
 :focus {
