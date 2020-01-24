@@ -196,9 +196,9 @@ h3 {
 }
 
 #numberList p {
-    font-size: 0.9em;
+    font-size: 14px;
     margin-top: 14px;
-    margin-bottom: 33px;
+    margin-bottom: 34px;
     font-weight: bold;
     color: var(--main-brown)
 }
@@ -296,8 +296,8 @@ h3 {
 }
 
 .divSelectedSong p {
-    font-size: 0.9em;
-    max-height: 13px;
+    font-size: 14px;
+    max-height: 14px;
     max-width: calc(100% - 50px);
     margin-bottom: 0;
     margin-left: 30px;
@@ -307,7 +307,7 @@ h3 {
     position: absolute;
     right: 20px;
     top: 11px;
-    color: #404040;
+    color: #6d6d6d;
 }
 
 .btnDeleteSong:hover {
