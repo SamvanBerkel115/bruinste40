@@ -127,6 +127,7 @@ input {
 }
 
 #divSongSelection {
+    margin: auto;
     width: 700px;
     height: 100%;
     padding: 100px 30px 30px 30px;
