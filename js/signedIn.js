@@ -96,7 +96,7 @@ if (!window.bruin) var bruin = {
                 pArtist.classList.add('pArtist');
                 divSong.appendChild(pArtist);
 
-                if (song.spotifyLink) {
+                if (false) {
                     let spotifyFrame = document.createElement('iframe');
                     spotifyFrame.classList.add("songSpotifyFrame");
                     spotifyFrame.setAttribute("src", song.spotifyLink);
