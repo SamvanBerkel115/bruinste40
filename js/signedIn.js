@@ -1,6 +1,19 @@
 if (!window.bruin) var bruin = {
     rest: {
         get: {
+            first30Songs: function() {
+                let result = $.ajax({
+                    url: "https://api.myjson.com/bins/6hssk",
+                    type:"GET",
+                    contentType:"application/json; charset=utf-8",
+                    dataType:"json",
+                    success: function(data, textStatus, jqXHR){
+                
+                    }
+                });
+
+                return result;
+            },
             songs: function() {
                 let result = $.ajax({
                     url: "https://api.myjson.com/bins/iruli",
@@ -325,6 +338,7 @@ if (!window.bruin) var bruin = {
 
         $('#btnOpenJouwBruine').on('click touch', function(evt) {
             Id('divJouwBruine').style.width = "100%";
+            Id('divJouwBruine').style.opacity = "1";
             Id('divJouwBruine').style.padding = "30px";
             Id('divJouwBruine').dataset.hidden = false;
 
@@ -334,6 +348,7 @@ if (!window.bruin) var bruin = {
 
         $('#btnCloseJouwBruine').on('click touch', function(evt) {
             Id('divJouwBruine').style.width = "0";
+            Id('divJouwBruine').style.opacity = "0";
             Id('divJouwBruine').style.padding = "0";
             Id('divJouwBruine').dataset.hidden = true;
 
@@ -362,7 +377,8 @@ if (!window.bruin) var bruin = {
         $("#divSelectedSongs").sortable("option", "axis", "y");
         $("#myContainer").sortable("option", "containment", Id('divJouwBruine'));
 
-        bruin.data.songs = bruin.data.searchedSongs = await bruin.rest.get.songs();
+        bruin.data.songs = bruin.data.searchedSongs = await bruin.rest.get.first30Songs();
+        bruin.set.songs();
         bruin.data.users = await bruin.rest.get.users();
 
         let userName = localStorage.getItem("userName");
@@ -382,10 +398,11 @@ if (!window.bruin) var bruin = {
             localStorage.removeItem("userName");
             window.location.href = "index.html";
         }
+
+        bruin.data.songs = bruin.data.searchedSongs = await bruin.rest.get.songs();
+        bruin.set.songs();
                 
         bruin.data.selectedSongs = currentUser.selectedSongs;
-
-        bruin.set.songs();
         bruin.set.selectedSongs();
 
         let requiredHeight = parseInt(Id('numberList').offsetHeight, 10) + 50;

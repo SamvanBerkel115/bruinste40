@@ -71,7 +71,7 @@ input {
 
 .inputContainer {
     width: 100%;
-    margin: 5px 0 20px 0;
+    margin: 70px 0 20px 0;
     position: relative;
 }
 
@@ -182,6 +182,7 @@ input {
     top: 70px;
     background-color: var(--light-brown);
     width: 0;
+    opacity: 0;
     min-height: calc(100% - 70px);
     height: fit-content;
     padding: 0;
